@@ -8,21 +8,21 @@
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from payment
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.cpown.springcloud.entities.Payment">
     insert into payment (id, serial)
-    values (#{id,jdbcType=INTEGER}, #{paymentName,jdbcType=VARCHAR})
+    values (#{id,jdbcType=BIGINT}, #{serial,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.cpown.springcloud.entities.Payment">
     update payment
-    set serial = #{paymentName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    set serial = #{serial,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select id, serial
     from payment
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, serial
