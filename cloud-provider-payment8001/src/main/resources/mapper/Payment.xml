@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cpown.springcloud.dao.PaymentMapper">
+  <resultMap id="BaseResultMap" type="com.cpown.springcloud.entities.Payment">
+
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="serial" jdbcType="VARCHAR" property="serial" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from payment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cpown.springcloud.entities.Payment">
+    insert into payment (id, serial)
+    values (#{id,jdbcType=INTEGER}, #{paymentName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cpown.springcloud.entities.Payment">
+    update payment
+    set serial = #{paymentName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, serial
+    from payment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, serial
+    from payment
+  </select>
+
+  <select id="selectDepartmentByName" resultMap="BaseResultMap">
+    select id, serial
+    from payment where serial = #{name}
+  </select>
+
+</mapper>
