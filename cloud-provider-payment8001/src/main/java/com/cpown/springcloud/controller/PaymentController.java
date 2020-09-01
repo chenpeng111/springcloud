@@ -29,7 +29,8 @@ public class PaymentController {
     public CommonResult create(@RequestBody Payment payment){
         log.info("8001新增数据"+payment);
         int insert = paymentService.insert(payment);
-        if(1 != insert){
+        log.info("8001新增数据结果："+insert);
+        if(insert>0){
             return new CommonResult("插入数据成功",0000,payment);
         }else {
             return new CommonResult("插入数据失败",9999);

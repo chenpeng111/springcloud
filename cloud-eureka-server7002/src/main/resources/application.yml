@@ -1,0 +1,16 @@
+server:
+  port: 7002
+#spring:
+#  application:
+#    name: cloud-eureka-service #eureka服务注册名称
+eureka:
+  instance:
+    hostname: eureka7002.com #eureka服务注册地址
+  client:
+    #false 表示自己就是注册中心，职责就是维护服务实例，不需要去检索服务
+    fetch-registry: false
+    #false 表示不想注册中心注册自己
+    register-with-eureka: false
+    service-url:
+#      #设置 eureka server 交互的地址查询服务和注册服务需要依赖的地址
+      defaultZone: http://eureka7001.com:7001/eureka/

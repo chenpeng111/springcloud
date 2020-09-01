@@ -1,20 +1,9 @@
 server:
-  port: 8001
+  port: 80
+debug: true
 spring:
   application:
-    name: cloud-payment-service
-  datasource:
-    # 当前数据源操作类型
-    type: com.alibaba.druid.pool.DruidDataSource
-    # mysql驱动类
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yao?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
-    username: root
-    password: 123456
-mybatis:
-  mapper-locations: classpath*:mapper/*.xml
-  type-aliases-package: com.cpown.springcloud.entities
-
+    name: cloud-consumer-order
 eureka:
   instance:
     hostname: localhost #eureka服务注册地址
