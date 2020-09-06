@@ -14,29 +14,30 @@ import javax.annotation.Resource;
 public class PaymentController {
     @Resource
     PaymentServiceImpl paymentService;
+
     @Value("${server.port}")
     private String serverPort;
 
     @GetMapping("/get/{id}")
     public CommonResult get(@PathVariable("id") Long id){
-        log.info("8001查询数据:"+id);
+        log.info("8002查询数据:"+id);
         Payment payment = paymentService.selectByPrimaryKey(id);
         if(null != payment){
             return new CommonResult("请求成功,serverPort:"+serverPort,0000,payment);
         }else {
-            return new CommonResult("请求失败,serverPort:"+serverPort,9999);
+            return new CommonResult("请求失败:serverPort"+serverPort,9999);
         }
     }
 
     @PostMapping("/create")
     public CommonResult create(@RequestBody Payment payment){
-        log.info("8001新增数据"+payment);
+        log.info("8002新增数据"+payment);
         int insert = paymentService.insert(payment);
-        log.info("8001新增数据结果："+insert);
+        log.info("8002新增数据结果："+insert);
         if(insert>0){
-            return new CommonResult("插入数据成功,serverPort:"+serverPort,0000,payment);
+            return new CommonResult("插入数据成功:serverPort:"+serverPort,0000,payment);
         }else {
-            return new CommonResult("插入数据失败,serverPort:"+serverPort,9999);
+            return new CommonResult("插入数据失败:"+serverPort,9999);
         }
     }
 }

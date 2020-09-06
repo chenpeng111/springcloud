@@ -18,7 +18,17 @@ import javax.annotation.Resource;
 public class OrderController {
     @Resource
     RestTemplate restTemplate;
-    private static  final  String baseUrl = "http://localhost:8001";
+    /**
+     * 单机调用
+     */
+//    private static  final  String baseUrl = "http://localhost:8001";
+    /**
+     * 集群微服务调用
+     * 可以直接使用微服务名称
+     * 需要搭配 @LoadBalanced注解
+     */
+    private static  final  String baseUrl = "http://cloud-payment-service";
+
 
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> get(@PathVariable("id") String id){
