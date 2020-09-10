@@ -17,6 +17,7 @@
     <module>cloud-provider-payment8002</module>
       <module>cloud-consul-payment8006</module>
     <module>cloud-consumer-order-consul80</module>
+      <module>cloud-consul-payment8007</module>
   </modules>
 
   <!--统一管理jar包版本-->
