@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.UUID;
 
+/**
+ * 服务接口提供类
+ */
 @Service
 public class PayService {
 
@@ -27,6 +30,11 @@ public class PayService {
         }
         return "服务端口成功:"+ UUID.randomUUID();    }
 
+    /**
+     * 服务降级回调方法
+     * @param id
+     * @return
+     */
     public String fallback(@PathVariable("id") Long id){
         return "id不可以为负数:"+id;
     }

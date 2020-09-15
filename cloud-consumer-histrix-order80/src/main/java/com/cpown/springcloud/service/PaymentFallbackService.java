@@ -1,8 +1,10 @@
 package com.cpown.springcloud.service;
 
-import com.cpown.springcloud.dto.CommonResult;
 import org.springframework.stereotype.Component;
 
+/**
+ * 服务降级异常处理类
+ */
 @Component
 public class PaymentFallbackService implements PaymentService{
     @Override

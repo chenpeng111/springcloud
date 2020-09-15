@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 接口服务访问
+ */
 @RestController
 public class Controller {
 
@@ -26,7 +29,5 @@ public class Controller {
     public String getInfo_error(@PathVariable("id") Long id){
         return payService.getInfoError(id);
     }
-
-
 
 }
