@@ -23,6 +23,9 @@
     <module>cloud-consumer-histrix-order80</module>
     <module>cloud-consumer-hystrix-dashboard9001</module>
       <module>cloud-gateway9527</module>
+    <module>cloud-alibaba-payment9001</module>
+    <module>cloud-alibaba-order8001</module>
+    <module>cloud-alibaba-payment9002</module>
   </modules>
 
   <!--统一管理jar包版本-->
