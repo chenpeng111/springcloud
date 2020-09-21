@@ -1,0 +1,38 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      #开启从注册中心动态创建路由功能，利用微服务进行路由
+      discovery:
+        locator:
+          enabled: true
+#      routes:
+#        - id: payment_route1
+##    单机版      uri: http://localhost:8001
+#          uri: lb://cloud-payment-service
+#          predicates:
+#            通过路径进行断言路由
+#            -  Path=/get/**
+#            通过请求时间  如果请求时间不在对应时间之后则请求失败
+#            - After=2020-09-19T06:06:06+08:00[Asia/Shanghai]
+#            通过请求时间  如果请求时间不在对应时间之前则请求失败
+#            - Before=2020-09-19T06:06:06+08:00[Asia/Shanghai]
+#            通过cookie
+#            - Cookie=cpown, cpown
+
+
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service #eureka服务注册地址
+  client:
+    #是否从eureka Server 抓取已有的注册信息，默认true，单节点无所谓，集群必须为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    #表示是否将自己加入eureka service true代表加入
+    register-with-eureka: true
+    service-url:
+      #      #设置 eureka server 交互的地址查询服务和注册服务需要依赖的地址
+      defaultZone: http://eureka7001.com:7001/eureka
