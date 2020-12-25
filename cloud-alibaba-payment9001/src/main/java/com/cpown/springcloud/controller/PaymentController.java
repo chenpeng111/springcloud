@@ -12,6 +12,7 @@ import java.util.UUID;
 public class PaymentController {
     @Value("${server.port}")
     private String serverPort;
+    //aasss
 
 
     @GetMapping("/getInfo/{id}")
